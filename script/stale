@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+function main {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  if [[ -x "$(type -P squid)" ]]; then
+    return 1
+  fi
+
+  return 0
+}
+
+source sub "$BASH_SOURCE" "$@"
