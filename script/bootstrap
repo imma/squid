@@ -12,8 +12,6 @@ function bootstrap {
       pkg ensure www/squid www/squid3
       ;;
   esac
-
-  mkdir -p "$shome/var/squid/cache/squid"
 }
 
 bootstrap
