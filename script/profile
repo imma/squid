@@ -2,7 +2,7 @@
 
 function profile {
   local shome="${_squid_home:-"$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
-  PATH="$shome/bin:$shome/exec:$PATH"
+  PATH="$shome/bin:$PATH"
 }
 
 profile
