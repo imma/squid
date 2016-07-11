@@ -10,12 +10,7 @@ function squid_server {
 
   case "${1:-}" in
     default)
-      cat "$shome/etc/squid.conf.template" | envsubst '${CACHE_DIR}' > "$shome/etc/squid.conf.tmp"
-      mv "$shome/etc/squid.conf.tmp" "$shome/etc/squid.conf"
-
-      mkdir -p "${CACHE_DIR}/cache/squid"
-      squid -f "$shome/etc/squid.conf" -zN
-
+      "$shome/script/update"
       exec squid -N -d 1 -f "$shome/etc/squid.conf"
       ;;
     *)
