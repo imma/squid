@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+function squid_server {
+  local shome="${_squid_home:-"$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"}"
+  source "$shome/script/profile"
+
+  if [[ "$#" == 0 ]]; then
+    set -- default
+  fi
+
+  case "${1:-}" in
+    default)
+      cat "$shome/etc/squid.conf.template" | envsubst '${CACHE_DIR}' > "$shome/etc/squid.conf.tmp"
+      mv "$shome/etc/squid.conf.tmp" "$shome/etc/squid.conf"
+
+      mkdir -p "${CACHE_DIR}/cache/squid"
+      squid -f "$shome/etc/squid.conf" -zN
+
+      exec squid -N -d 1 -f "$shome/etc/squid.conf"
+      ;;
+    *)
+      echo "ERROR: unknown server command: ${1:-/not-supplied/}" 1>&2
+      return 1
+      ;;
+  esac
+}
+
+squid_server "$@"
+
+}
+
+bootstrap
+
