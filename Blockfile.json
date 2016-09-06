@@ -1,6 +1,5 @@
 {
   "require": [
-    "pkgsrc",
-    "apt-mirror"
+    "pkgsrc"
   ]
 }

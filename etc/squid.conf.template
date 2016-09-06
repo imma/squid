@@ -4343,7 +4343,7 @@ coredump_dir ${CACHE_DIR}/cache/squid
 #	By default, a URL rewriter is not used.
 #Default:
 # none
-url_rewrite_program ${CACHE_DIR}/cache/apt-mirror/rewrite-apt.pl
+#url_rewrite_program ${CACHE_DIR}/cache/apt-mirror/rewrite-apt.pl
 
 #  TAG: url_rewrite_children
 #	The maximum number of redirector processes to spawn. If you limit
