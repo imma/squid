@@ -45,4 +45,3 @@ USER root
 
 ENTRYPOINT exec /usr/sbin/sshd -De
 EXPOSE 22
-

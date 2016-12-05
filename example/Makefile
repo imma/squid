@@ -1,5 +1,9 @@
+container = block-$(shell basename $(shell dirname $(PWD)))-example
+
 docker:
-	docker build -t block-$(shell basename $(shell dirname $(PWD)))-example .
+	docker build -t $(container) .
 
 run:
-	@docker run -ti -p 2222:22 block-$(shell basename $(shell dirname $(PWD)))-example
+	@-docker kill $(container) $(container)
+	@-docker rm $(container) $(container)
+	@docker run -ti -p 2222:22 --name $(container) $(container)
