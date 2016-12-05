@@ -1,3 +1,4 @@
 /etc/squid.conf
+authorized_keys
 /sv
 /var/squid/cache/squid
