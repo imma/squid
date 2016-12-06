@@ -36,3 +36,4 @@ RUN mkdir -p /var/run/sshd
 RUN aptitude install -y git
 RUN aptitude install -y curl unzip perl language-pack-en build-essential
 RUN aptitude install -y python ruby
+RUN aptitude install -y vim
