@@ -11,5 +11,5 @@ run:
 deploy:
 	../script/deploy
 
-console:
+ssh:
 	../script/console
