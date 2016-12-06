@@ -6,4 +6,4 @@ docker:
 run:
 	@-docker kill $(container) $(container)
 	@-docker rm $(container) $(container)
-	@docker run -ti -p 2222:22 --name $(container) $(container)
+	@docker run -ti -p 2222:22 -v /vagrant:/vagrant --name $(container) $(container)

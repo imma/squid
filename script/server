@@ -21,8 +21,3 @@ function squid_server {
 }
 
 squid_server "$@"
-
-}
-
-bootstrap
-

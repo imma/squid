@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+function squid_deploy {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  env HOME_REPO=git@github.com:imma/squid home remote cache init ssh -A -p 2222 ubuntu@localhost --
+}
+
+squid_deploy "$@"
