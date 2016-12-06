@@ -5,13 +5,13 @@ function squid_cibuild {
 
   mkdir -p "$shome/work"
 
-  echo '{ "require": [ "block", "cache" ] }' > Blockfile.json.site
-
   if [[ ! -d "$shome/work/block/.git" ]]; then
     (cd "$shome/work" && git clone git@github.com:imma/block)
   fi
   "$shome/work/block/script/cibuild"
   source "$shome/work/block/script/profile"
+
+  block gen cibuild
 
   if [[ ! -d "$shome/work/cache/.git" ]]; then
     (cd "$shome/work" && git clone git@github.com:imma/cache)
