@@ -16,7 +16,7 @@ daemon:
 	@docker run -d -ti -p 2222:22 -v /vagrant:/vagrant --name $(container) $(container)
 
 deploy:
-	script/deploy
+	env HOME_REPO=git@github.com:imma/squid home remote cache init ssh -A -p 2222 ubuntu@localhost --
 
 ssh:
-	script/console
+	ssh -A -p 2222 ubuntu@localhost
