@@ -4,6 +4,7 @@ function squid_cibuild {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
 
   mkdir -p "$shome/work"
+  git clean -fdx
 
   if [[ ! -d "$shome/work/block/.git" ]]; then
     (cd "$shome/work" && git clone git@github.com:imma/block)
