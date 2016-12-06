@@ -6,6 +6,13 @@ function squid_cibuild {
   git clean -fdx
   mkdir -p "$shome/work"
 
+  cat <<EOF | "$@" tee -a .ssh/config
+Host github.com
+  StrictHostKeyChecking no
+  ForwardAgent no
+
+EOF
+
   if [[ ! -d "$shome/work/block/.git" ]]; then
     (cd "$shome/work" && git clone git@github.com:imma/block)
   fi
