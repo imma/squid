@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-function home_cibuild {
+function squid_cibuild {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
 
   mkdir -p "$shome/work"
+
+  echo '{ "require": [ "block", "cache" ] }' > Blockfile.json.site
 
   if [[ ! -d "$shome/work/block/.git" ]]; then
     (cd "$shome/work" && git clone git@github.com:imma/block)
@@ -23,4 +25,4 @@ function home_cibuild {
   require
 }
 
-home_cibuild "$@"
+squid_cibuild "$@"
