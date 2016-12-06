@@ -6,7 +6,7 @@ function squid_cibuild {
   git clean -fdx
   mkdir -p "$shome/work"
 
-  cat <<EOF | "$@" tee -a .ssh/config
+  cat <<EOF | tee -a ~/.ssh/config
 Host github.com
   StrictHostKeyChecking no
   ForwardAgent no
