@@ -21,8 +21,6 @@ function home_cibuild {
 
   "$shome/work/block/script/cibuild" "$@"
   require
-
-  facts cache
 }
 
 home_cibuild "$@"
