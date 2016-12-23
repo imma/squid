@@ -1,7 +1,7 @@
 container = block-$(shell basename $(PWD))
 
 docker:
-	docker build -t $(container) .
+	docker build -t $(container) --build-arg ssh_key="$(shell head -1 ~/.ssh/authorized_keys)" --build-arg http_proxy="$(http_proxy)" .
 
 redeploy:
 	$(MAKE) daemon
