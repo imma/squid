@@ -4,7 +4,7 @@ container = block-$(shell basename $(PWD))
 instance = deploy-$(shell basename $(PWD))
 
 docker:
-	@docker build -t $(container) --build-arg http_proxy="$(http_proxy)" $(opt) .
+	@docker build -t $(container) --build-arg http_proxy="http://$(CACHE_VIP):3128" $(opt) .
 
 image:
 	@docker commit $(container) $(container) $(opt)
