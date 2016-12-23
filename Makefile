@@ -1,1 +1,1 @@
-include $(BLOCK_PATH)/base/Makefile
+include ../base/Makefile.docker
