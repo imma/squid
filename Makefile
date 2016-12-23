@@ -38,4 +38,3 @@ redeploy:
 	$(MAKE) deploy
 	$(MAKE) image
 	$(MAKE) daemon
-
