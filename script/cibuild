@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-function squid_cibuild {
+function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
 
-  git clean -fdx
   mkdir -p "$shome/work"
 
   mkdir -p ~/.ssh
@@ -11,7 +10,6 @@ function squid_cibuild {
 Host github.com
   StrictHostKeyChecking no
   ForwardAgent no
-
 EOF
 
   if [[ ! -d "$shome/work/block/.git" ]]; then
@@ -19,8 +17,6 @@ EOF
   fi
   "$shome/work/block/script/cibuild"
   source "$shome/work/block/script/profile"
-
-  block gen cibuild
 
   if [[ ! -d "$shome/work/cache/.git" ]]; then
     (cd "$shome/work" && git clone git@github.com:imma/cache)
@@ -34,4 +30,4 @@ EOF
   require
 }
 
-squid_cibuild "$@"
+main "$@"
