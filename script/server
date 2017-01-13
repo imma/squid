@@ -11,6 +11,7 @@ function squid_server {
   case "${1:-}" in
     default)
       "$shome/script/update"
+      rm "$PKG_HOME/install/var/run/squid.pid"
       exec squid -N -d 1 -f "$shome/etc/squid.conf"
       ;;
     *)
