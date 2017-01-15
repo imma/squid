@@ -3361,7 +3361,7 @@ maximum_object_size 100000 MB
 #
 
 # Uncomment and adjust the following to add a disk cache directory.
-cache_dir ufs ${CACHE_DIR}/cache/squid 100000 16 256
+cache_dir ufs /data/squid/cache 100000 16 256
 
 #  TAG: store_dir_select_algorithm
 #	How Squid selects which cache_dir to use when the response
@@ -3851,7 +3851,7 @@ cache_dir ufs ${CACHE_DIR}/cache/squid 100000 16 256
 #	Default:
 #		access_log daemon:/Users/defn/install/var/squid/logs/access.log squid
 #Default:
-# access_log daemon:/Users/defn/install/var/squid/logs/access.log squid
+access_log daemon:/data/squid/logs/access.log squid
 
 #  TAG: icap_log
 #	ICAP log files record ICAP transaction summaries, one line per
@@ -3975,7 +3975,7 @@ cache_dir ufs ${CACHE_DIR}/cache/squid 100000 16 256
 #	of modules supported.
 #	
 #	Example:
-#		cache_store_log stdio:/Users/defn/install/var/squid/logs/store.log
+cache_store_log none
 #		cache_store_log daemon:/Users/defn/install/var/squid/logs/store.log
 #Default:
 # none
@@ -4051,7 +4051,7 @@ cache_dir ufs ${CACHE_DIR}/cache/squid 100000 16 256
 #  TAG: pid_filename
 #	A filename to write the process-id to.  To disable, enter "none".
 #Default:
-# pid_filename /Users/defn/install/var/run/squid.pid
+pid_filename none
 
 #  TAG: client_netmask
 #	A netmask for client addresses in logfiles and cachemgr output.
@@ -4092,7 +4092,7 @@ cache_dir ufs ${CACHE_DIR}/cache/squid 100000 16 256
 #
 #	To disable, enter "none".
 #Default:
-# netdb_filename stdio:/Users/defn/install/var/squid/logs/netdb.state
+netdb_filename none
 
 # OPTIONS FOR TROUBLESHOOTING
 # -----------------------------------------------------------------------------
@@ -4104,7 +4104,7 @@ cache_dir ufs ${CACHE_DIR}/cache/squid 100000 16 256
 #	increase the amount of data logged to this file and how often it is
 #	rotated with "debug_options"
 #Default:
-# cache_log /Users/defn/install/var/squid/logs/cache.log
+cache_log /data/squid/logs/cache.log
 
 #  TAG: debug_options
 #	Logging options are set as section,level where each source file
@@ -4133,7 +4133,7 @@ cache_dir ufs ${CACHE_DIR}/cache/squid 100000 16 256
 #
 
 # Leave coredumps in the first cache dir
-coredump_dir ${CACHE_DIR}/cache/squid
+coredump_dir /data/squid/cache
 
 # OPTIONS FOR FTP GATEWAYING
 # -----------------------------------------------------------------------------
@@ -4343,7 +4343,7 @@ coredump_dir ${CACHE_DIR}/cache/squid
 #	By default, a URL rewriter is not used.
 #Default:
 # none
-#url_rewrite_program ${CACHE_DIR}/cache/apt-mirror/rewrite-apt.pl
+#url_rewrite_program /config/squid/bin/rewrite-apt.pl
 
 #  TAG: url_rewrite_children
 #	The maximum number of redirector processes to spawn. If you limit
