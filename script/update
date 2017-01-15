@@ -7,6 +7,7 @@ function bootstrap {
   cat "$shome/etc/squid.conf.template" > "$shome/etc/squid.conf.tmp"
   mv "$shome/etc/squid.conf.tmp" "$shome/etc/squid.conf"
   mkdir -p "/data/squid/cache"
+  mkdir -p "/data/squid/logs"
   squid -f "$shome/etc/squid.conf" -zN
 }
 
