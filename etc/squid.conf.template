@@ -4051,7 +4051,7 @@ cache_store_log none
 #  TAG: pid_filename
 #	A filename to write the process-id to.  To disable, enter "none".
 #Default:
-pid_filename none
+pid_filename /data/squid/run/squid.pid
 
 #  TAG: client_netmask
 #	A netmask for client addresses in logfiles and cachemgr output.

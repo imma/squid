@@ -11,6 +11,7 @@ function squid_server {
   case "${1:-}" in
     default)
       "$shome/script/update"
+      mkdir -p /data/squid/run
       exec squid -N -d 1 -f "$shome/etc/squid.conf"
       ;;
     *)
