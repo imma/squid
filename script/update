@@ -4,11 +4,9 @@ function bootstrap {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  cat "$shome/etc/squid.conf.template" > "$shome/etc/squid.conf.tmp"
-  mv "$shome/etc/squid.conf.tmp" "$shome/etc/squid.conf"
   mkdir -p "/data/squid/cache"
   mkdir -p "/data/squid/logs"
-  squid -f "$shome/etc/squid.conf" -zN
+  squid -f "/config/squid/squid.conf" -zN
 }
 
 bootstrap
