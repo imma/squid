@@ -6,6 +6,7 @@ function bootstrap {
 
   mkdir -p "/data/squid/cache"
   mkdir -p "/data/squid/logs"
+  mkdir -p "/data/squid/run"
   squid -f "/config/squid/squid.conf" -zN
 }
 

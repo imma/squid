@@ -11,8 +11,8 @@ function squid_server {
   case "${1:-}" in
     default)
       "$shome/script/update"
-      mkdir -p /data/squid/run
-      exec squid -N -d 1 -f "$shome/etc/squid.conf"
+      rm -f /data/squid/run/squid.pid
+      exec squid -N -d 1 -f "/data/squid/squid.conf"
       ;;
     *)
       echo "ERROR: unknown server command: ${1:-/not-supplied/}" 1>&2
