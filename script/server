@@ -12,7 +12,7 @@ function squid_server {
     default)
       "$shome/script/update"
       rm -f /data/squid/run/squid.pid
-      exec squid -N -d 1 -f "/data/squid/squid.conf"
+      exec squid -N -d 1 -f "/config/squid/squid.conf"
       ;;
     *)
       echo "ERROR: unknown server command: ${1:-/not-supplied/}" 1>&2
