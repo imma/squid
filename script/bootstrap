@@ -12,6 +12,8 @@ function bootstrap {
       pkg ensure www/squid www/squid3
       ;;
   esac
+
+  runmany 'localhost -m file -- state=directory dest="$1"' "/data/squid/cache" "/data/squid/logs" "/data/squid/run"
 }
 
 bootstrap
