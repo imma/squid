@@ -12,6 +12,7 @@ function squid_server {
     default)
       "$shome/script/update"
       rm -f /data/squid/run/squid.pid
+      squid -z -f "/config/squid/squid.conf"
       exec squid -N -d 1 -f "/config/squid/squid.conf"
       ;;
     *)
