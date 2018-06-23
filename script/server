@@ -4,6 +4,8 @@ function squid_server {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
+  runmany 'mkdir -p ${DATA}/squid/$1' cache logs run
+
   if [[ "$#" == 0 ]]; then
     set -- default
   fi
